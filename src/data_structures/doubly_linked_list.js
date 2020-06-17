@@ -37,7 +37,7 @@ class DoublyLinkedList {
   insertHead(element) {
     const head = new this.Node({element, next: this._head(), prev: this._sentinel});
     this._head().prev = head;
-    this._tail().next = head;
+    this._sentinel.next = head;
     return head;
   }
 
@@ -82,8 +82,7 @@ class DoublyLinkedList {
   // Query
   count() {
     let count = 0;
-    this.forEach(() => {
-      count += 1});
+    this.forEach(() => (count += 1));
     return count;
   }
 }
